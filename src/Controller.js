@@ -1,5 +1,5 @@
 const date = (request, response) => {
-  let param = request.params.date;
+  const param = request.params.date;
 
   const dateValidation = /(\d\d\d\d)-(\d\d)-(\d\d)/g.test(param);
   const unixValidation = /(^\d+$)/g.test(param);
@@ -23,7 +23,7 @@ const date = (request, response) => {
       response.json({ dateStr, utc, unix });
     }
     if (unixValidation) {
-      let unix = parseInt(param);
+      const unix = parseInt(param);
       const date = new Date(unix);
       const utc = date.toUTCString();
       const dateStr = date.toString();
